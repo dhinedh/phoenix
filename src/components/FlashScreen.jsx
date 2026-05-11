@@ -3,27 +3,71 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const FlashScreen = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
+    if (!hasStarted) return;
+
+    // Technical Ambient Audio Setup
+    const audio = new Audio('https://cdn.pixabay.com/audio/2026/04/13/audio_1569faf36b.mp3');
+    audio.volume = 0.3;
+    audio.loop = true;
+
+    const playAudio = () => {
+      audio.play().catch(err => {
+        console.log("Autoplay prevented. Audio will play on first interaction.", err);
+      });
+    };
+
+    playAudio();
+
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
+          
+          // Fade out audio on completion
+          const fadeOut = setInterval(() => {
+            if (audio.volume > 0.05) {
+              audio.volume -= 0.05;
+            } else {
+              audio.pause();
+              clearInterval(fadeOut);
+            }
+          }, 100);
+
           setTimeout(onComplete, 1200);
           return 100;
         }
         return prev + 1;
       });
     }, 20);
-    return () => clearInterval(timer);
-  }, [onComplete]);
+
+    return () => {
+      clearInterval(timer);
+      audio.pause();
+    };
+  }, [onComplete, hasStarted]);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[2000] bg-white flex items-center justify-center overflow-hidden"
+      onClick={() => !hasStarted && setHasStarted(true)}
+      className={`fixed inset-0 z-[2000] bg-white flex items-center justify-center overflow-hidden ${!hasStarted ? 'cursor-pointer' : ''}`}
     >
+      {/* Interaction Hint */}
+      {!hasStarted && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-12 z-50 text-[10px] tracking-[0.6em] text-white/40 uppercase font-black"
+        >
+          Click Anywhere to Begin
+        </motion.div>
+      )}
+
       {/* BACKGROUND DEPTH: Minimalist Moving Planes */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -40,13 +84,13 @@ const FlashScreen = ({ onComplete }) => {
       {/* THE PORTAL: Expanding Geometric Core */}
       <motion.div
         initial={{ width: 0, height: 2, opacity: 0 }}
-        animate={{ width: "100%", opacity: 1 }}
+        animate={hasStarted ? { width: "100%", opacity: 1 } : { width: 40, opacity: 0.2 }}
         transition={{ duration: 1, ease: [0.87, 0, 0.13, 1] }}
         className="absolute z-10 flex items-center justify-center"
       >
         <motion.div
           initial={{ height: 2 }}
-          animate={{ height: "40vh" }}
+          animate={hasStarted ? { height: "40vh" } : { height: 2 }}
           transition={{ duration: 1.5, delay: 0.5, ease: [0.87, 0, 0.13, 1] }}
           className="w-px bg-secondary/50 relative"
         >
@@ -61,33 +105,39 @@ const FlashScreen = ({ onComplete }) => {
 
       {/* CONTENT: Luxury Brand Reveal */}
       <div className="relative z-20 flex flex-col items-center">
-        <div className="overflow-hidden mb-4">
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
-            className="flex items-center gap-6"
-          >
-            <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-secondary flex items-center justify-center font-heading font-black text-2xl md:text-3xl text-secondary">
-              P
-            </div>
-            <div className="h-px w-12 bg-secondary/30 hidden md:block" />
-            <h1 className="text-4xl md:text-7xl font-heading font-light text-white tracking-[0.3em] uppercase">
-              PHOEN<span className="font-black text-secondary">NIX</span>
-            </h1>
-          </motion.div>
-        </div>
+        <AnimatePresence>
+          {hasStarted && (
+            <div className="flex flex-col items-center">
+              <div className="overflow-hidden mb-4">
+                <motion.div
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                  className="flex items-center gap-6"
+                >
+                  <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-secondary flex items-center justify-center font-heading font-black text-2xl md:text-3xl text-secondary">
+                    P
+                  </div>
+                  <div className="h-px w-12 bg-secondary/30 hidden md:block" />
+                  <h1 className="text-4xl md:text-7xl font-heading font-light text-white tracking-[0.3em] uppercase">
+                    PHOEN<span className="font-black text-secondary">NIX</span>
+                  </h1>
+                </motion.div>
+              </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.8 }}
-          className="flex flex-col items-center"
-        >
-          <p className="text-[10px] md:text-xs tracking-[0.8em] text-white/40 uppercase font-bold">
-            Global Logistics Excellence
-          </p>
-        </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="flex flex-col items-center"
+              >
+                <p className="text-[10px] md:text-xs tracking-[0.8em] text-white/40 uppercase font-bold">
+                  Global Logistics Excellence
+                </p>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* FOOTER PROGRESS SYSTEM: Architectural Bottom Placement */}
