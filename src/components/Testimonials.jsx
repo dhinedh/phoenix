@@ -73,7 +73,7 @@ const Testimonials = () => {
               return (
                 <div 
                   key={`${idx}-${i}`}
-                  className={`group bg-surface p-10 md:p-12 rounded-sm border border-gray-50 transition-all duration-700 shadow-sm hover:shadow-xl hover:-translate-y-2 animate-fade-in`}
+                  className={`group bg-surface p-10 md:p-12 rounded-sm border border-gray-50 transition-all duration-700 shadow-sm hover:shadow-xl hover:-translate-y-2 animate-fade-in ${i > 0 ? 'hidden md:block' : ''}`}
                   style={{ animationDelay: `${i * 150}ms` }}
                 >
                   <div className="text-secondary mb-8">

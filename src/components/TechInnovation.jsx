@@ -16,8 +16,29 @@ const features = [
   }
 ];
 
+import { motion } from 'framer-motion';
+
 const TechInnovation = () => {
   const { activeIdx, setRef } = useScrollActive({ rootMargin: '-40% 0px -40% 0px' });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.3, ease: "easeOut" }
+    }
+  };
 
   return (
     <section className="py-40 bg-primary relative overflow-hidden">
@@ -31,22 +52,28 @@ const TechInnovation = () => {
 
       <div className="container mx-auto px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="order-2 lg:order-1">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            className="order-2 lg:order-1"
+          >
              <div className="space-y-12">
                 {features.map((f, i) => {
                   const isActive = activeIdx === i;
                   
                   return (
-                    <div 
+                    <motion.div 
                       key={i} 
+                      variants={itemVariants}
                       data-scroll-index={i}
                       ref={setRef(i)}
-                      className={`flex gap-8 group transition-all duration-700 reveal reveal-left ${
+                      className={`flex gap-8 group transition-all duration-200 ${
                         isActive ? 'md:translate-x-4' : ''
                       }`}
-                      style={{ transitionDelay: `${i * 150}ms` }}
                     >
-                      <div className={`flex-shrink-0 w-14 h-14 border flex items-center justify-center font-heading font-bold text-xl transition-all duration-500 ${
+                      <div className={`flex-shrink-0 w-14 h-14 border flex items-center justify-center font-heading font-bold text-xl transition-all duration-200 ${
                         isActive ? 'bg-secondary border-secondary text-primary scale-110 shadow-lg rotate-[360deg]' : 'border-secondary/30 text-secondary group-hover:bg-secondary group-hover:text-primary'
                       }`}>
                         0{i+1}
@@ -55,13 +82,19 @@ const TechInnovation = () => {
                         <h3 className={`text-xl font-heading font-bold mb-3 uppercase tracking-widest transition-colors ${isActive ? 'text-secondary' : 'text-white'}`}>{f.title}</h3>
                         <p className={`font-light leading-relaxed max-w-sm transition-colors text-sm ${isActive ? 'text-white' : 'text-white/40'}`}>{f.desc}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
              </div>
-          </div>
+          </motion.div>
 
-          <div className="order-1 lg:order-2 reveal reveal-right">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+            className="order-1 lg:order-2"
+          >
             <h2 className="text-secondary font-bold tracking-[0.5em] mb-6 uppercase text-xs">Innovation</h2>
             <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-8 leading-tight">
               The Digital <br />
@@ -74,7 +107,7 @@ const TechInnovation = () => {
             <button className="text-[11px] tracking-[0.4em] font-bold text-white border border-white/20 px-10 py-5 rounded-sm hover:bg-white hover:text-primary transition-all">
               EXPLORE OUR TECH
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

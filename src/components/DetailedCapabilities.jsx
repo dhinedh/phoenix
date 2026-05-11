@@ -92,7 +92,7 @@ const DetailedCapabilities = () => {
                 data-scroll-index={index}
                 ref={setRef(index)}
                 onClick={() => navigate(`/services/${service.id}`)}
-                className={`${gridClasses} group relative overflow-hidden rounded-sm bg-primary cursor-pointer border border-primary/5 shadow-elegant transition-all duration-700 ${isActive ? 'md:scale-100 scale-[1.03] ring-2 ring-secondary/20 z-20' : ''}`}
+                className={`${gridClasses} group relative overflow-hidden rounded-sm bg-primary cursor-pointer border border-primary/5 shadow-elegant transition-all duration-200 ${isActive ? 'md:scale-100 scale-[1.03] ring-2 ring-secondary/20 z-20' : ''}`}
               >
                 {/* Background Image */}
                 <img 

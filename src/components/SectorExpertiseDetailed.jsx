@@ -31,6 +31,8 @@ const sectors = [
   }
 ];
 
+import { motion } from 'framer-motion';
+
 const SectorExpertiseDetailed = () => {
   const [activeIdx, setActiveIdx] = useState(0);
   const sectionRefs = useRef([]);
@@ -67,28 +69,41 @@ const SectorExpertiseDetailed = () => {
     <section className="py-40 bg-white overflow-hidden">
       <div className="container mx-auto px-8">
         <div className="flex flex-col lg:flex-row items-start justify-between mb-24 gap-12">
-          <div className="max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            className="max-w-3xl"
+          >
             <h2 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-xs">Industry Focus</h2>
             <h1 className="text-5xl md:text-8xl font-heading font-black text-primary leading-none tracking-tighter">
               SECTOR <br />
               <span className="font-light italic text-muted">Specialization.</span>
             </h1>
-          </div>
-          <p className="text-muted text-xl max-w-sm font-light leading-relaxed border-l-2 border-secondary/30 pl-10 pt-4">
+          </motion.div>
+          <motion.p 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            className="text-muted text-xl max-w-sm font-light leading-relaxed border-l-2 border-secondary/30 pl-10 pt-4"
+          >
             We provide specialized engineering for industries where precision isn't optional—it's the core requirement.
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           {/* List Side */}
           <div className="lg:col-span-5 space-y-4">
             {sectors.map((s, i) => (
-              <div 
+              <motion.div 
                 key={i}
                 data-index={i}
                 ref={el => sectionRefs.current[i] = el}
                 onMouseEnter={() => window.innerWidth >= 1024 && setActiveIdx(i)}
-                className={`group cursor-pointer p-8 rounded-sm transition-all duration-500 border-l-4 ${
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className={`group cursor-pointer p-8 rounded-sm transition-all duration-200 border-l-4 ${
                   activeIdx === i 
                     ? 'bg-primary border-secondary shadow-2xl md:translate-x-4 scale-[1.02] md:scale-100' 
                     : 'bg-surface border-transparent hover:border-secondary/30'
@@ -117,7 +132,7 @@ const SectorExpertiseDetailed = () => {
                 </div>
 
                 {/* Mobile-only descriptive snippet when active */}
-                <div className={`lg:hidden overflow-hidden transition-all duration-500 ${activeIdx === i ? 'max-h-40 mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className={`lg:hidden overflow-hidden transition-all duration-300 ${activeIdx === i ? 'max-h-40 mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
                    <p className="text-white/60 text-sm leading-relaxed mb-4">
                      {s.desc}
                    </p>
@@ -129,7 +144,7 @@ const SectorExpertiseDetailed = () => {
                       ))}
                    </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -138,7 +153,7 @@ const SectorExpertiseDetailed = () => {
             {sectors.map((s, i) => (
               <div 
                 key={i}
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                   activeIdx === i ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-110 translate-y-8 pointer-events-none'
                 }`}
               >
@@ -146,7 +161,7 @@ const SectorExpertiseDetailed = () => {
                 <img 
                   src={s.image} 
                   alt={s.title} 
-                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-1000"
+                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
                 />
                 
                 {/* Overlays */}
@@ -155,7 +170,7 @@ const SectorExpertiseDetailed = () => {
                 
                 {/* Content Overlay (Desktop only, as mobile info is now inside the list cards) */}
                 <div className="absolute inset-0 p-12 flex flex-col justify-end hidden lg:flex">
-                  <div className="glass p-10 border-l-4 border-secondary translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                  <div className="glass p-10 border-l-4 border-secondary translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <p className="text-white text-lg font-light leading-relaxed mb-8">
                       {s.desc}
                     </p>

@@ -11,8 +11,8 @@ export const useScrollActive = (options = {}) => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-25% 0px -25% 0px', // Center-focused trigger
-      threshold: 0.5,
+      rootMargin: '-10% 0px -10% 0px', // More forgiving trigger for mobile focus
+      threshold: 0.2, // Trigger sooner
       ...options
     };
 

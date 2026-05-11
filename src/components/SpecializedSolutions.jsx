@@ -31,40 +31,78 @@ const solutions = [
   }
 ];
 
+import { motion } from 'framer-motion';
+
 const SpecializedSolutions = () => {
   const { activeIdx, setRef } = useScrollActive();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-8">
         <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
-          <div className="max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            className="max-w-3xl"
+          >
             <h2 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-xs animate-pulse">Sector Expertise</h2>
             <h1 className="text-4xl md:text-6xl font-heading font-black text-primary leading-tight tracking-tighter">
               SPECIALIZED <br />
-              <span className="font-light italic text-muted text-reveal">Industrial Solutions.</span>
+              <span className="font-light italic text-muted">Industrial Solutions.</span>
             </h1>
-          </div>
-          <p className="text-muted text-lg max-w-sm font-light leading-relaxed border-l border-secondary/30 pl-8">
+          </motion.div>
+          <motion.p 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            className="text-muted text-lg max-w-sm font-light leading-relaxed border-l border-secondary/30 pl-8"
+          >
             Beyond standard freight, we offer high-stakes logistics engineering for complex requirements.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-10"
+        >
           {solutions.map((s, index) => {
             const isActive = activeIdx === index;
             
             return (
-              <div 
+              <motion.div 
                 key={index} 
+                variants={itemVariants}
                 data-scroll-index={index}
                 ref={setRef(index)}
-                className={`group p-10 transition-all duration-700 rounded-sm border border-gray-50 overflow-hidden relative shadow-sm reveal reveal-rotate delay-${index + 1} ${
+                className={`group p-10 transition-all duration-200 rounded-sm border border-gray-50 overflow-hidden relative shadow-sm ${
                   isActive ? 'bg-primary scale-[1.02] shadow-2xl z-20' : 'bg-surface hover:bg-primary'
                 }`}
               >
                 <div className="relative z-10">
-                  <div className={`w-16 h-16 flex items-center justify-center transition-all duration-500 mb-10 shadow-sm ${
+                  <div className={`w-16 h-16 flex items-center justify-center transition-all duration-200 mb-10 shadow-sm ${
                     isActive ? 'bg-secondary text-primary' : 'bg-white text-primary group-hover:bg-secondary group-hover:text-primary'
                   }`}>
                     {s.icon}
@@ -85,10 +123,10 @@ const SpecializedSolutions = () => {
                 }`}>
                   {index + 1}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

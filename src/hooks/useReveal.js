@@ -16,17 +16,20 @@ export const useReveal = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // Once revealed, we can stop observing this element
-          observer.unobserve(entry.target);
+          // If you want it to trigger only once, keep this:
+          // observer.unobserve(entry.target);
+        } else {
+          // Re-trigger animations when scrolling back up (optional but professional)
+          entry.target.classList.remove('active');
         }
       });
     }, observerOptions);
 
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach((el) => observer.observe(el));
+    const elements = document.querySelectorAll('.reveal');
+    elements.forEach((el) => observer.observe(el));
 
     return () => {
-      revealElements.forEach((el) => observer.unobserve(el));
+      elements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 };

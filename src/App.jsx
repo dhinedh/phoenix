@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -43,6 +44,21 @@ const ScrollToTop = () => {
   return null;
 };
 
+const PageWrapper = ({ children }) => {
+  const location = useLocation();
+  return (
+    <motion.div
+      key={location.pathname}
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -20 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 function App() {
   return (
     <Router>
@@ -50,16 +66,27 @@ function App() {
         <ScrollToTop />
         <Navbar />
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/:id" element={<ServiceDetailPage />} />
-            <Route path="/network" element={<NetworkPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route 
+                path="*" 
+                element={
+                  <PageWrapper>
+                    <Routes>
+                      <Route path="/" element={<HomePage />} />
+                      <Route path="/about" element={<AboutPage />} />
+                      <Route path="/services" element={<ServicesPage />} />
+                      <Route path="/services/:id" element={<ServiceDetailPage />} />
+                      <Route path="/network" element={<NetworkPage />} />
+                      <Route path="/blog" element={<BlogPage />} />
+                      <Route path="/gallery" element={<GalleryPage />} />
+                      <Route path="/contact" element={<ContactPage />} />
+                    </Routes>
+                  </PageWrapper>
+                } 
+              />
+            </Routes>
+          </AnimatePresence>
         </main>
         <Footer />
         <ChatWidget />

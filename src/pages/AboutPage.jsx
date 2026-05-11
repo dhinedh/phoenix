@@ -1,5 +1,6 @@
 import React from 'react';
 import { useScrollActive } from '../hooks/useScrollActive';
+import { motion } from 'framer-motion';
 
 const values = [
   {
@@ -47,26 +48,57 @@ const AboutPage = () => {
     <div className="bg-white min-h-screen">
       {/* Cinematic Hero */}
       <section className="relative h-[70vh] flex items-center overflow-hidden bg-primary">
-        <div className="absolute inset-0 z-0">
+        <motion.div 
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="absolute inset-0 z-0"
+        >
           <img 
             src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2000" 
             alt="About Hero" 
-            className="w-full h-full object-cover opacity-20 scale-105"
+            className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
-        </div>
+        </motion.div>
         <div className="container mx-auto px-8 relative z-10 pt-20">
-          <div className="max-w-4xl">
-            <h2 className="text-secondary font-bold tracking-[0.5em] mb-8 uppercase text-xs animate-fade-in">Our Legacy</h2>
-            <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-10 leading-[0.9] tracking-tighter animate-fade-in delay-1">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, staggerChildren: 0.2 }}
+            className="max-w-4xl"
+          >
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-secondary font-bold tracking-[0.5em] mb-8 uppercase text-xs"
+            >
+              Our Legacy
+            </motion.h2>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl md:text-7xl font-heading font-bold text-white mb-10 leading-[0.9] tracking-tighter"
+            >
               Architects of <br />
               <span className="font-light italic text-white/40">Global Flow.</span>
-            </h1>
-            <p className="text-white/60 text-lg md:text-xl max-w-2xl font-light leading-relaxed animate-fade-in delay-2">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-white/60 text-lg md:text-xl max-w-2xl font-light leading-relaxed"
+            >
               We are not just a logistics provider; we are the architects of your global supply chain success.
-            </p>
-            <div className="w-24 h-1 gold-gradient"></div>
-          </div>
+            </motion.p>
+            <motion.div 
+              initial={{ width: 0 }}
+              animate={{ width: "6rem" }}
+              transition={{ delay: 0.6, duration: 1 }}
+              className="h-1 gold-gradient"
+            ></motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -77,7 +109,12 @@ const AboutPage = () => {
         </div>
         <div className="container mx-auto px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div className="reveal reveal-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8 }}
+            >
                <h2 className="text-secondary font-bold tracking-[0.4em] mb-8 uppercase text-xs animate-pulse">Our Heritage</h2>
                <h1 className="text-4xl md:text-7xl font-heading font-black text-primary mb-12 leading-[0.9] tracking-tighter">
                  FROM LOCAL EXPERTISE <br />
@@ -96,8 +133,14 @@ const AboutPage = () => {
                     <span className="text-[10px] tracking-widest text-muted font-bold uppercase">Global Partners</span>
                   </div>
                </div>
-            </div>
-            <div className="relative group reveal reveal-right">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1, ease: [0.2, 0.8, 0.2, 1] }}
+              className="relative group"
+            >
                <div className="aspect-[4/5] bg-surface overflow-hidden rounded-sm relative z-10 shadow-2xl">
                   <img 
                     src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1200" 
@@ -105,13 +148,18 @@ const AboutPage = () => {
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[2000ms]"
                   />
                </div>
-               <div className="absolute -bottom-12 -left-12 bg-primary p-12 text-white shadow-[30px_30px_60px_rgba(0,0,0,0.3)] hidden md:block max-w-xs z-20 border-l-4 border-secondary">
+               <motion.div 
+                 initial={{ x: -20, opacity: 0 }}
+                 whileInView={{ x: 0, opacity: 1 }}
+                 transition={{ delay: 0.5, duration: 0.8 }}
+                 className="absolute -bottom-12 -left-12 bg-primary p-12 text-white shadow-[30px_30px_60px_rgba(0,0,0,0.3)] hidden md:block max-w-xs z-20 border-l-4 border-secondary"
+               >
                   <p className="italic font-light text-sm leading-relaxed mb-6">
                     "Precision is not an option; it is our foundation. We move more than cargo; we move your business forward."
                   </p>
                   <p className="font-bold tracking-widest uppercase text-[10px]">— L. Yuvaraj, Founder</p>
-               </div>
-            </div>
+               </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -123,7 +171,13 @@ const AboutPage = () => {
         </div>
         <div className="container mx-auto px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
-             <div className="group">
+             <motion.div 
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: false }}
+               transition={{ duration: 0.8 }}
+               className="group"
+             >
                 <h3 className="text-secondary font-bold tracking-[0.4em] mb-8 uppercase text-xs">Mission Control</h3>
                 <h2 className="text-3xl md:text-6xl font-heading font-light text-white mb-10 leading-[0.9] tracking-tighter">
                    UNPARALLELED <br />
@@ -133,8 +187,14 @@ const AboutPage = () => {
                 <p className="mt-10 text-white/40 font-light leading-relaxed max-w-xl text-lg">
                    Ensuring our clients' cargo moves with surgical precision and absolute reliability across every global border.
                 </p>
-             </div>
-             <div className="group">
+             </motion.div>
+             <motion.div 
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: false }}
+               transition={{ duration: 0.8, delay: 0.2 }}
+               className="group"
+             >
                 <h3 className="text-secondary font-bold tracking-[0.4em] mb-8 uppercase text-xs">Future Vision</h3>
                 <h2 className="text-3xl md:text-6xl font-heading font-light text-white mb-10 leading-[0.9] tracking-tighter">
                    TRUSTED <br />
@@ -144,7 +204,7 @@ const AboutPage = () => {
                 <p className="mt-10 text-white/40 font-light leading-relaxed max-w-xl text-lg">
                    Recognized globally for our commitment to simplifying the complexities of international trade and supply chains.
                 </p>
-             </div>
+             </motion.div>
           </div>
         </div>
       </section>
@@ -155,26 +215,34 @@ const AboutPage = () => {
            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         </div>
         <div className="container mx-auto px-8 relative z-10">
-          <div className="text-center mb-32">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false }}
+            className="text-center mb-32"
+          >
              <h2 className="text-secondary font-bold tracking-[0.6em] mb-6 uppercase text-[10px] animate-pulse">DNA</h2>
              <h1 className="text-5xl md:text-8xl font-heading font-black text-primary mb-8 tracking-tighter">CORE VALUES.</h1>
              <div className="w-24 h-1.5 bg-secondary/30 mx-auto"></div>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
              {values.map((v, i) => {
                const isActive = activeIdx === i;
                return (
-                 <div 
-                   key={i} 
-                   data-scroll-index={i}
-                   ref={setRef(i)}
-                   className={`p-12 rounded-sm border transition-all duration-700 group overflow-hidden relative ${
-                     isActive 
-                       ? 'bg-primary border-secondary shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] scale-[1.05] z-20' 
-                       : 'bg-white border-gray-50 hover:border-secondary hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)]'
-                   }`}
-                 >
+                 <motion.div 
+                    key={i} 
+                    data-scroll-index={i}
+                    ref={setRef(i)}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1, duration: 0.6 }}
+                    className={`p-12 rounded-sm border transition-all duration-200 group overflow-hidden relative ${
+                      isActive 
+                        ? 'bg-primary border-secondary shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] scale-[1.05] z-20' 
+                        : 'bg-white border-gray-50 hover:border-secondary hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)]'
+                    }`}
+                  >
                     <div className={`w-14 h-14 flex items-center justify-center mb-10 transition-all duration-500 rounded-sm ${
                       isActive ? 'bg-secondary text-primary' : 'bg-primary text-secondary group-hover:bg-secondary group-hover:text-primary'
                     }`}>
@@ -190,7 +258,7 @@ const AboutPage = () => {
                     }`}>
                       {v.desc}
                     </p>
-                 </div>
+                 </motion.div>
                );
              })}
           </div>
@@ -201,30 +269,48 @@ const AboutPage = () => {
       <section className="py-20 relative overflow-hidden bg-white">
         <div className="container mx-auto px-8 relative z-10">
            <div className="flex flex-col lg:flex-row gap-32 items-center">
-              <div className="lg:w-1/2 group relative">
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1 }}
+                className="lg:w-1/2 group relative"
+              >
                  <img 
                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" 
                    alt="Infrastructure" 
                    className="rounded-sm shadow-2xl relative z-10 transition-transform duration-1000 group-hover:scale-[1.02]"
                  />
-              </div>
-              <div className="lg:w-1/2">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1 }}
+                className="lg:w-1/2"
+              >
                  <h2 className="text-secondary font-bold tracking-[0.4em] mb-8 uppercase text-xs">Infrastructure</h2>
-                 <h1 className="text-5xl md:text-7xl font-heading font-black text-primary mb-12 leading-[0.9] tracking-tighter">BUILT <br /> FOR SCALE.</h1>
+                 <h1 className="text-5xl md:text-7xl font-heading font-bold text-primary mb-12 leading-[0.9] tracking-tighter">BUILT <br /> FOR SCALE.</h1>
                  <p className="text-muted text-lg mb-16 leading-relaxed font-light max-w-xl">
                    Our infrastructure is designed for modern enterprise demands. From secure warehousing nodes to proprietary real-time monitoring systems, we provide the technical foundation for your growth.
                  </p>
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="p-10 bg-surface border border-gray-100 hover:border-secondary/30 transition-colors group">
+                    <motion.div 
+                      whileHover={{ scale: 1.05 }}
+                      className="p-10 bg-surface border border-gray-100 hover:border-secondary/30 transition-colors group"
+                    >
                        <h4 className="text-primary font-bold mb-4 flex items-center gap-4 text-sm">24/7 Support</h4>
                        <p className="text-muted text-xs font-light leading-relaxed">Continuous monitoring across all timezones with immediate failover protocols.</p>
-                    </div>
-                    <div className="p-10 bg-surface border border-gray-100 hover:border-secondary/30 transition-colors group">
+                    </motion.div>
+                    <motion.div 
+                      whileHover={{ scale: 1.05 }}
+                      className="p-10 bg-surface border border-gray-100 hover:border-secondary/30 transition-colors group"
+                    >
                        <h4 className="text-primary font-bold mb-4 flex items-center gap-4 text-sm">Cloud Integration</h4>
                        <p className="text-muted text-xs font-light leading-relaxed">Digital supply chain visibility on all devices with real-time telemetry syncing.</p>
-                    </div>
+                    </motion.div>
                  </div>
-              </div>
+              </motion.div>
            </div>
         </div>
       </section>
