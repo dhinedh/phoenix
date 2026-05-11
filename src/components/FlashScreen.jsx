@@ -2,143 +2,137 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FlashScreen = ({ onComplete }) => {
-  const [counter, setCounter] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCounter((prev) => {
+      setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(() => {
-            onComplete();
-          }, 800); // Give time for the final state to be seen
+          setTimeout(onComplete, 1200);
           return 100;
         }
         return prev + 1;
       });
-    }, 20); // Faster counting for smooth feel
-
+    }, 20);
     return () => clearInterval(timer);
   }, [onComplete]);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ 
-        y: '-100%',
-        transition: { duration: 1, ease: [0.87, 0, 0.13, 1] } 
-      }}
-      className="fixed inset-0 z-[1000] bg-[#000B1E] flex flex-col items-center justify-center overflow-hidden"
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[2000] bg-white flex items-center justify-center overflow-hidden"
     >
-      {/* Background Subtle Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+      {/* BACKGROUND DEPTH: Minimalist Moving Planes */}
+      <div className="absolute inset-0 z-0">
         <motion.div 
           animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1]
+            x: ['-5%', '5%'],
+            y: ['-5%', '5%']
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-[80vw] h-[80vw] bg-secondary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4"
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-[-10%] bg-[#000B1E]"
         />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.05, 0.15, 0.05]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-0 left-0 w-[60vw] h-[60vw] bg-secondary/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"
-        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/95 to-primary/90" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative flex flex-col items-center">
-        {/* Logo Animation */}
+      {/* THE PORTAL: Expanding Geometric Core */}
+      <motion.div
+        initial={{ width: 0, height: 2, opacity: 0 }}
+        animate={{ width: "100%", opacity: 1 }}
+        transition={{ duration: 1, ease: [0.87, 0, 0.13, 1] }}
+        className="absolute z-10 flex items-center justify-center"
+      >
         <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="flex items-center gap-6 mb-12"
+          initial={{ height: 2 }}
+          animate={{ height: "40vh" }}
+          transition={{ duration: 1.5, delay: 0.5, ease: [0.87, 0, 0.13, 1] }}
+          className="w-px bg-secondary/50 relative"
         >
+          {/* Glowing Center Point */}
           <motion.div 
-            initial={{ rotate: -10 }}
-            animate={{ rotate: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="w-16 h-16 md:w-20 md:h-20 gold-gradient flex items-center justify-center text-primary font-extrabold text-3xl md:text-4xl shadow-[0_0_50px_rgba(212,175,55,0.3)]"
+            animate={{ scale: [1, 2, 1], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-secondary rounded-full blur-md"
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* CONTENT: Luxury Brand Reveal */}
+      <div className="relative z-20 flex flex-col items-center">
+        <div className="overflow-hidden mb-4">
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+            className="flex items-center gap-6"
           >
-            P
+            <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-secondary flex items-center justify-center font-heading font-black text-2xl md:text-3xl text-secondary">
+              P
+            </div>
+            <div className="h-px w-12 bg-secondary/30 hidden md:block" />
+            <h1 className="text-4xl md:text-7xl font-heading font-light text-white tracking-[0.3em] uppercase">
+              PHOEN<span className="font-black text-secondary">NIX</span>
+            </h1>
           </motion.div>
-          <div className="flex flex-col">
-            <motion.div className="flex overflow-hidden">
-              {"PHOENNIX".split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.2 + index * 0.05,
-                    ease: [0.215, 0.61, 0.355, 1]
-                  }}
-                  className="font-heading font-bold text-3xl md:text-5xl tracking-[0.1em] text-white leading-none inline-block"
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </motion.div>
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-              className="text-[10px] md:text-xs tracking-[0.5em] text-secondary font-bold uppercase mt-2"
-            >
-              Global Logisticss
-            </motion.span>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.8 }}
+          className="flex flex-col items-center"
+        >
+          <p className="text-[10px] md:text-xs tracking-[0.8em] text-white/40 uppercase font-bold mb-8">
+            Global Logistics Excellence
+          </p>
+
+          {/* Minimalist Progress System */}
+          <div className="w-48 md:w-64 relative">
+             <div className="flex justify-between items-end mb-2">
+                <span className="text-[8px] tracking-widest text-secondary font-black uppercase">Loading Experience</span>
+                <span className="text-white font-heading text-lg font-light tabular-nums">{progress}%</span>
+             </div>
+             <div className="h-0.5 w-full bg-white/5 relative">
+                <motion.div 
+                  className="absolute top-0 left-0 h-full bg-secondary shadow-[0_0_10px_rgba(212,175,55,0.5)]"
+                  style={{ width: `${progress}%` }}
+                />
+             </div>
           </div>
         </motion.div>
-
-        {/* Progress Section */}
-        <div className="w-64 md:w-80 relative">
-          <div className="flex justify-between items-end mb-2">
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              className="text-[10px] tracking-[0.2em] text-white/50 uppercase font-bold"
-            >
-              Initializing Systems
-            </motion.span>
-            <span className="text-secondary font-heading font-bold text-xl tabular-nums">
-              {counter}%
-            </span>
-          </div>
-          
-          {/* Progress Bar Track */}
-          <div className="h-[2px] w-full bg-white/10 relative overflow-hidden">
-            {/* Progress Bar Fill */}
-            <motion.div 
-              className="absolute top-0 left-0 h-full bg-secondary"
-              style={{ width: `${counter}%` }}
-              transition={{ type: "spring", stiffness: 50, damping: 20 }}
-            />
-            {/* Glow Effect */}
-            <motion.div 
-              className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white/50 to-transparent"
-              animate={{ 
-                left: ['-20%', '120%'] 
-              }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            />
-          </div>
-        </div>
       </div>
 
-      {/* Footer Text */}
+      {/* TRANSITION SHUTTER (Reveals on Exit) */}
+      <AnimatePresence>
+        {progress === 100 && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 4, opacity: 1 }}
+            transition={{ duration: 1.5, ease: [0.87, 0, 0.13, 1] }}
+            className="absolute z-50 w-screen h-screen bg-white rounded-full pointer-events-none"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* DECORATIVE CORNER ACCENTS */}
       <motion.div 
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-12 text-[10px] tracking-[0.4em] text-white font-medium uppercase"
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="absolute inset-12 pointer-events-none"
       >
-        Securing Global Supply Chains
+        <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/10" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/10" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-white/10" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/10" />
+        
+        {/* Dynamic Coordinates */}
+        <div className="absolute top-0 right-0 text-[8px] text-white/20 font-mono flex flex-col items-end">
+          <span>LAT: 13.0827° N</span>
+          <span>LON: 80.2707° E</span>
+        </div>
       </motion.div>
     </motion.div>
   );
