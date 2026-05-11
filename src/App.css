@@ -1,0 +1,4 @@
+/* App.css - Reset or project specific non-tailwind styles */
+:root {
+  scroll-behavior: smooth;
+}

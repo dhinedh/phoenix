@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000B1E;
+  --color-secondary: #D4AF37;
+  --color-accent: #C5A059;
+  --color-surface: #F8FAFC;
+  --color-muted: #64748B;
+  
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Outfit", sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000B1E;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Elegant Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-reveal {
+  background: linear-gradient(to bottom, #fff 0%, #a1a1a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+}
+
+.shadow-elegant {
+  box-shadow: 0 10px 30px -10px rgba(0, 11, 30, 0.1);
+}
+
+/* Professional Entrance Animations */
+.reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up {
+  transform: translateY(100px);
+}
+
+.reveal-down {
+  transform: translateY(-100px);
+}
+
+.reveal-left {
+  transform: translateX(-100px);
+}
+
+.reveal-right {
+  transform: translateX(100px);
+}
+
+.reveal-scale {
+  transform: scale(0.9) translateY(40px);
+}
+
+.reveal-rotate {
+  transform: translateY(60px) rotate(3deg);
+}
+
+.reveal-skew {
+  transform: translateY(60px) skewY(2deg);
+}
+
+.reveal.active {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0) scale(1) rotate(0) skewY(0);
+}
+
+/* Staggered Delay Architecture */
+.delay-1 { transition-delay: 100ms; }
+.delay-2 { transition-delay: 200ms; }
+.delay-3 { transition-delay: 300ms; }
+.delay-4 { transition-delay: 400ms; }
+.delay-5 { transition-delay: 500ms; }
+.delay-6 { transition-delay: 600ms; }
+.delay-7 { transition-delay: 700ms; }
+.delay-8 { transition-delay: 800ms; }
+.delay-9 { transition-delay: 900ms; }
+.delay-10 { transition-delay: 1000ms; }
+
+/* Continuous Micro-Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+/* Smooth Horizontal Scroll for Mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
