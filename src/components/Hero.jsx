@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import heroBg from '../assets/hero-bg.png';
 
 import { motion } from 'framer-motion';
+import ThreeDFloatingItems from './ThreeDFloatingItems';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -44,6 +45,8 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/70 to-primary"></div>
       </motion.div>
+
+      <ThreeDFloatingItems />
 
       {/* Centered Content */}
       <div className="container mx-auto px-6 relative z-10 text-center pt-12 md:pt-0">

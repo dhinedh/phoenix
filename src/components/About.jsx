@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollActive } from '../hooks/useScrollActive';
 import { motion } from 'framer-motion';
+import ThreeDTilt from './ThreeDTilt';
 
 const About = () => {
   const navigate = useNavigate();
@@ -19,15 +20,17 @@ const About = () => {
             transition={{ duration: 1, ease: [0.2, 0.8, 0.2, 1] }}
             className="lg:w-1/2 relative"
           >
-            <div className="relative z-10 border-[10px] border-surface p-10 lg:p-16 bg-primary shadow-2xl rounded-sm">
-              <div className="absolute -top-6 -right-6 w-20 h-20 gold-gradient -z-10"></div>
-              <h3 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-[10px]">Since 2011</h3>
-              <h2 className="text-2xl md:text-4xl font-heading font-light text-white mb-8 leading-tight">
-                Crafting <span className="font-bold italic">Global</span> Connections.
-              </h2>
-              <div className="w-16 h-0.5 bg-white/20 mb-8"></div>
-              <p className="text-white/40 text-xs tracking-widest uppercase font-bold">Chennai, India • International Network</p>
-            </div>
+            <ThreeDTilt>
+              <div className="relative z-10 border-[10px] border-surface p-10 lg:p-16 bg-primary shadow-2xl rounded-sm">
+                <div className="absolute -top-6 -right-6 w-20 h-20 gold-gradient -z-10"></div>
+                <h3 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-[10px]">Since 2011</h3>
+                <h2 className="text-2xl md:text-4xl font-heading font-light text-white mb-8 leading-tight">
+                  Crafting <span className="font-bold italic">Global</span> Connections.
+                </h2>
+                <div className="w-16 h-0.5 bg-white/20 mb-8"></div>
+                <p className="text-white/40 text-xs tracking-widest uppercase font-bold">Chennai, India • International Network</p>
+              </div>
+            </ThreeDTilt>
             {/* Decorative Grid */}
             <div className="absolute -bottom-10 -left-10 w-48 h-48 border border-primary/5 -z-10"></div>
           </motion.div>

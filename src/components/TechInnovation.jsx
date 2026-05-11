@@ -17,6 +17,7 @@ const features = [
 ];
 
 import { motion } from 'framer-motion';
+import ThreeDBackground from './ThreeDBackground';
 
 const TechInnovation = () => {
   const { activeIdx, setRef } = useScrollActive({ rootMargin: '-40% 0px -40% 0px' });
@@ -42,13 +43,7 @@ const TechInnovation = () => {
 
   return (
     <section className="py-40 bg-primary relative overflow-hidden">
-      {/* Background Tech Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M0 0 L100 100 M100 0 L0 100" stroke="white" strokeWidth="0.1" />
-          <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="0.05" fill="none" />
-        </svg>
-      </div>
+      <ThreeDBackground />
 
       <div className="container mx-auto px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">

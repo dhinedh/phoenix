@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -12,6 +12,7 @@ import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import ChatWidget from './components/ChatWidget';
+import FlashScreen from './components/FlashScreen';
 import './App.css';
 
 import { useReveal } from './hooks/useReveal';
@@ -59,12 +60,20 @@ const PageWrapper = ({ children }) => {
   );
 };
 
-function App() {
+function AppContent() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <Router>
-      <div className="min-h-screen bg-white flex flex-col">
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <FlashScreen key="loader" onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
+      <div className={`min-h-screen bg-white flex flex-col ${isLoading ? 'h-screen overflow-hidden' : ''}`}>
         <ScrollToTop />
-        <Navbar />
+        {!isLoading && <Navbar />}
         <main className="flex-grow">
           <AnimatePresence mode="wait">
             <Routes>
@@ -88,11 +97,20 @@ function App() {
             </Routes>
           </AnimatePresence>
         </main>
-        <Footer />
-        <ChatWidget />
+        {!isLoading && <Footer />}
+        {!isLoading && <ChatWidget />}
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
 
 export default App;
+
