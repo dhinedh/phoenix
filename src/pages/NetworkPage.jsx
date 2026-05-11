@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useScrollActive } from '../hooks/useScrollActive';
 import NetworkDetailed from '../components/NetworkDetailed';
 
@@ -12,6 +13,7 @@ const hubDetails = [
 ];
 
 const NetworkPage = () => {
+  const navigate = useNavigate();
   const { activeIdx, setRef } = useScrollActive({ rootMargin: '-25% 0px -25% 0px' });
 
   return (
@@ -122,7 +124,10 @@ const NetworkPage = () => {
          <div className="container mx-auto px-8 text-center">
             <h2 className="text-secondary font-bold tracking-[0.5em] mb-12 uppercase text-[10px]">Global Reach</h2>
             <h1 className="text-4xl md:text-6xl font-heading font-light text-white mb-16">Connect to our <span className="font-bold italic text-secondary">Global Pulse.</span></h1>
-            <button className="gold-gradient text-primary px-16 py-6 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-2xl">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="gold-gradient text-primary px-16 py-6 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-2xl"
+            >
               Partner with us
             </button>
          </div>

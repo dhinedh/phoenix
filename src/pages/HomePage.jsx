@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
@@ -11,6 +12,7 @@ import TechInnovation from '../components/TechInnovation';
 import ctaBg from '../assets/cta-bg.png';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Hero />
@@ -50,7 +52,10 @@ const HomePage = () => {
               Partner with Phoennix Global Logisticss for precision-engineered freight solutions that move your business forward.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <button className="gold-gradient text-primary px-12 py-5 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-[0_20px_50px_rgba(212,175,55,0.3)] group flex items-center gap-4">
+              <button 
+                onClick={() => navigate('/contact')}
+                className="gold-gradient text-primary px-12 py-5 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-[0_20px_50px_rgba(212,175,55,0.3)] group flex items-center gap-4"
+              >
                 <span>Start Conversation</span>
                 <div className="w-8 h-[1px] bg-primary group-hover:w-12 transition-all"></div>
               </button>

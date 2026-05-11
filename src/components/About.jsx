@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useScrollActive } from '../hooks/useScrollActive';
 
 const About = () => {
+  const navigate = useNavigate();
   const { activeIdx, setRef } = useScrollActive({ rootMargin: '-40% 0px -40% 0px' });
 
   return (
@@ -65,7 +67,10 @@ const About = () => {
                 })}
               </div>
 
-              <button className="gold-gradient text-primary px-10 py-5 rounded-sm font-bold text-sm tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-xl">
+              <button 
+                onClick={() => navigate('/about')}
+                className="gold-gradient text-primary px-10 py-5 rounded-sm font-bold text-sm tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-xl"
+              >
                 Learn Our Story
               </button>
             </div>
@@ -99,7 +104,10 @@ const About = () => {
               <span className="text-[10px] tracking-widest text-muted font-bold uppercase">On Time</span>
             </div>
           </div>
-          <button className="text-[10px] md:text-[11px] tracking-[0.3em] font-bold text-primary border-b-2 border-secondary pb-1 hover:text-secondary transition-all">
+          <button 
+            onClick={() => navigate('/network')}
+            className="text-[10px] md:text-[11px] tracking-[0.3em] font-bold text-primary border-b-2 border-secondary pb-1 hover:text-secondary transition-all"
+          >
             EXPAND NETWORK
           </button>
         </div>

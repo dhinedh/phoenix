@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import heroBg from '../assets/hero-bg.png';
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
       {/* Background Image with Elegant Overlay */}
@@ -32,10 +34,16 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in delay-3">
-            <button className="gold-gradient text-primary px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:brightness-110 shadow-2xl">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="gold-gradient text-primary px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:brightness-110 shadow-2xl"
+            >
               Inquire Now
             </button>
-            <button className="glass text-white border border-white/20 px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:bg-white/10">
+            <button 
+              onClick={() => navigate('/services')}
+              className="glass text-white border border-white/20 px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:bg-white/10"
+            >
               Our Capabilities
             </button>
           </div>
