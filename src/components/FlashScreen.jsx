@@ -84,25 +84,59 @@ const FlashScreen = ({ onComplete }) => {
           transition={{ duration: 1, delay: 1.8 }}
           className="flex flex-col items-center"
         >
-          <p className="text-[10px] md:text-xs tracking-[0.8em] text-white/40 uppercase font-bold mb-8">
+          <p className="text-[10px] md:text-xs tracking-[0.8em] text-white/40 uppercase font-bold">
             Global Logistics Excellence
           </p>
-
-          {/* Minimalist Progress System */}
-          <div className="w-48 md:w-64 relative">
-             <div className="flex justify-between items-end mb-2">
-                <span className="text-[8px] tracking-widest text-secondary font-black uppercase">Loading Experience</span>
-                <span className="text-white font-heading text-lg font-light tabular-nums">{progress}%</span>
-             </div>
-             <div className="h-0.5 w-full bg-white/5 relative">
-                <motion.div 
-                  className="absolute top-0 left-0 h-full bg-secondary shadow-[0_0_10px_rgba(212,175,55,0.5)]"
-                  style={{ width: `${progress}%` }}
-                />
-             </div>
-          </div>
         </motion.div>
       </div>
+
+      {/* FOOTER PROGRESS SYSTEM: Architectural Bottom Placement */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-20 left-12 right-12 md:left-24 md:right-24 z-30"
+      >
+        <div className="max-w-md mx-auto">
+          <div className="flex justify-between items-end mb-4">
+            <div className="flex flex-col gap-1">
+              <span className="text-[8px] tracking-[0.4em] text-secondary font-black uppercase">Loading Experience</span>
+              <div className="flex gap-1">
+                {[...Array(4)].map((_, i) => (
+                  <motion.div 
+                    key={i}
+                    animate={{ opacity: [0.2, 1, 0.2] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
+                    className="w-1 h-1 bg-secondary rounded-full"
+                  />
+                ))}
+              </div>
+            </div>
+            <span className="text-white font-heading text-2xl font-light tabular-nums">
+              {progress}<span className="text-xs ml-1 text-secondary">%</span>
+            </span>
+          </div>
+          
+          <div className="h-0.5 w-full bg-white/5 relative overflow-hidden">
+            <motion.div 
+              className="absolute top-0 left-0 h-full bg-secondary shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+              style={{ width: `${progress}%` }}
+              transition={{ type: "spring", stiffness: 40, damping: 20 }}
+            />
+            {/* Glossy highlight passing through */}
+            <motion.div 
+              animate={{ x: ['-100%', '200%'] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            />
+          </div>
+          
+          <div className="mt-4 flex justify-between">
+            <span className="text-[7px] text-white/20 tracking-widest uppercase font-bold">Systems Ready</span>
+            <span className="text-[7px] text-white/20 tracking-widest uppercase font-bold">PHOENNIX_GLOBAL_STAGING</span>
+          </div>
+        </div>
+      </motion.div>
 
       {/* TRANSITION SHUTTER (Reveals on Exit) */}
       <AnimatePresence>
