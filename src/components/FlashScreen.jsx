@@ -100,40 +100,61 @@ const FlashScreen = ({ onComplete }) => {
         <div className="max-w-md mx-auto">
           <div className="flex justify-between items-end mb-4">
             <div className="flex flex-col gap-1">
-              <span className="text-[8px] tracking-[0.4em] text-secondary font-black uppercase">Loading Experience</span>
+              <span className={`text-[8px] tracking-[0.4em] font-black uppercase transition-colors duration-500 ${progress === 100 ? 'text-white' : 'text-secondary'}`}>
+                {progress === 100 ? 'Initialization Complete' : 'Loading Experience'}
+              </span>
               <div className="flex gap-1">
                 {[...Array(4)].map((_, i) => (
                   <motion.div 
                     key={i}
-                    animate={{ opacity: [0.2, 1, 0.2] }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
-                    className="w-1 h-1 bg-secondary rounded-full"
+                    animate={progress === 100 ? { 
+                      scale: [1, 1.5, 1],
+                      backgroundColor: ["#D4AF37", "#FFFFFF", "#D4AF37"]
+                    } : { 
+                      opacity: [0.2, 1, 0.2] 
+                    }}
+                    transition={{ duration: progress === 100 ? 0.5 : 1.5, repeat: progress === 100 ? 0 : Infinity, delay: i * 0.1 }}
+                    className="w-1.5 h-1.5 rounded-full bg-secondary"
                   />
                 ))}
               </div>
             </div>
-            <span className="text-white font-heading text-2xl font-light tabular-nums">
+            <motion.span 
+              animate={progress === 100 ? { scale: [1, 1.2, 1], color: ["#fff", "#D4AF37", "#fff"] } : {}}
+              className="text-white font-heading text-3xl font-light tabular-nums"
+            >
               {progress}<span className="text-xs ml-1 text-secondary">%</span>
-            </span>
+            </motion.span>
           </div>
           
-          <div className="h-0.5 w-full bg-white/5 relative overflow-hidden">
+          <div className="h-1 w-full bg-white/5 relative overflow-hidden">
             <motion.div 
-              className="absolute top-0 left-0 h-full bg-secondary shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+              className={`absolute top-0 left-0 h-full shadow-[0_0_25px_rgba(212,175,55,0.6)] transition-colors duration-500 ${progress === 100 ? 'bg-white' : 'bg-secondary'}`}
               style={{ width: `${progress}%` }}
               transition={{ type: "spring", stiffness: 40, damping: 20 }}
             />
-            {/* Glossy highlight passing through */}
-            <motion.div 
-              animate={{ x: ['-100%', '200%'] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-            />
+            {progress < 100 && (
+              <motion.div 
+                animate={{ x: ['-100%', '200%'] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              />
+            )}
           </div>
           
-          <div className="mt-4 flex justify-between">
-            <span className="text-[7px] text-white/20 tracking-widest uppercase font-bold">Systems Ready</span>
-            <span className="text-[7px] text-white/20 tracking-widest uppercase font-bold">PHOENNIX_GLOBAL_STAGING</span>
+          <div className="mt-4 flex justify-between overflow-hidden h-4">
+            <AnimatePresence mode="wait">
+              <motion.span 
+                key={progress === 100 ? 'ready' : 'staging'}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                className="text-[7px] text-white/40 tracking-widest uppercase font-bold"
+              >
+                {progress === 100 ? 'Connection Established' : 'Systems Staging...'}
+              </motion.span>
+            </AnimatePresence>
+            <span className="text-[7px] text-white/20 tracking-widest uppercase font-bold">PHOENNIX_GLOBAL_STABLE</span>
           </div>
         </div>
       </motion.div>
@@ -143,9 +164,9 @@ const FlashScreen = ({ onComplete }) => {
         {progress === 100 && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 4, opacity: 1 }}
-            transition={{ duration: 1.5, ease: [0.87, 0, 0.13, 1] }}
-            className="absolute z-50 w-screen h-screen bg-white rounded-full pointer-events-none"
+            animate={{ scale: 6, opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.8, ease: [0.87, 0, 0.13, 1] }}
+            className="absolute z-50 w-screen h-screen bg-white rounded-full pointer-events-none shadow-[0_0_100px_rgba(255,255,255,1)]"
           />
         )}
       </AnimatePresence>
