@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,16 +28,16 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 px-6 lg:px-16 py-3 md:py-6 ${
       isScrolled || isMobileMenuOpen 
-        ? 'bg-[#000B1E] shadow-2xl border-b border-white/5' 
+        ? 'bg-primary shadow-2xl border-b border-white/5' 
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto flex justify-between items-center">
         {/* Left Side: Company Logo */}
-        <Link to="/" className="flex items-center gap-3 md:gap-4 group relative z-[110]">
-          <div className="w-8 h-8 md:w-10 md:h-10 gold-gradient flex items-center justify-center text-primary font-extrabold text-lg md:text-xl group-hover:scale-110 transition-transform">P</div>
+        <Link to="/" className="flex items-center gap-4 group">
+          <BrandLogo className="w-10 h-10 md:w-12 md:h-12" />
           <div className="flex flex-col">
-            <span className="font-heading font-bold text-lg md:text-xl tracking-[0.2em] text-white leading-none">PHOENNIX</span>
-            <span className="text-[8px] md:text-[10px] tracking-[0.4em] text-secondary font-bold uppercase">Global Logisticss</span>
+            <span className={`font-heading font-black text-xl md:text-2xl tracking-tighter leading-none transition-colors ${isScrolled || isMobileMenuOpen ? 'text-white' : 'text-white'}`}>PHOENNIX</span>
+            <span className="text-[8px] md:text-[9px] tracking-[0.4em] font-bold text-accent uppercase leading-none mt-1">Global Logisticss</span>
           </div>
         </Link>
         
@@ -74,7 +75,7 @@ const Navbar = () => {
 
         {/* Right Corner: CTA Buttons */}
         <div className="hidden lg:flex items-center gap-6">
-           <Link to="/contact" className="gold-gradient text-primary px-8 py-3 rounded-sm font-bold text-[10px] tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-lg">
+           <Link to="/contact" className="accent-gradient text-white px-8 py-3 rounded-sm font-bold text-[10px] tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-lg">
               Get Quote
            </Link>
         </div>
@@ -97,7 +98,7 @@ const Navbar = () => {
         isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
       }`}>
          {/* Solid Backdrop for Legibility */}
-         <div className="absolute inset-0 bg-[#000B1E]"></div>
+         <div className="absolute inset-0 bg-primary"></div>
          
          {/* Geometric Background Visuals */}
          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
@@ -142,7 +143,7 @@ const Navbar = () => {
                <Link 
                  to="/contact" 
                  onClick={() => setIsMobileMenuOpen(false)}
-                 className="gold-gradient text-primary px-8 py-5 rounded-sm font-bold text-[10px] tracking-[0.4em] uppercase text-center shadow-2xl"
+                 className="accent-gradient text-white px-8 py-5 rounded-sm font-bold text-[10px] tracking-[0.4em] uppercase text-center shadow-2xl"
                >
                   Initialize Briefing
                </Link>

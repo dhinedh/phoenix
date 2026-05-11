@@ -112,7 +112,7 @@ const SectorExpertiseDetailed = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className={`text-[10px] tracking-[0.3em] font-bold mb-2 block ${
-                      activeIdx === i ? 'text-secondary' : 'text-muted'
+                      activeIdx === i ? 'text-accent' : 'text-muted'
                     }`}>
                       {s.id} — INDUSTRY
                     </span>
@@ -123,7 +123,7 @@ const SectorExpertiseDetailed = () => {
                     </h3>
                   </div>
                   <div className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
-                    activeIdx === i ? 'bg-secondary text-primary rotate-0' : 'bg-primary/5 text-primary -rotate-45'
+                    activeIdx === i ? 'bg-accent text-white rotate-0 shadow-[0_0_15px_rgba(237,28,36,0.4)]' : 'bg-primary/5 text-primary -rotate-45'
                   }`}>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -138,7 +138,7 @@ const SectorExpertiseDetailed = () => {
                    </p>
                    <div className="flex flex-wrap gap-2">
                       {s.features.slice(0, 2).map((f, fi) => (
-                        <span key={fi} className="text-[8px] tracking-widest font-bold text-secondary border border-secondary/30 px-3 py-1 uppercase bg-secondary/5">
+                        <span key={fi} className={`text-[8px] tracking-widest font-bold border px-3 py-1 uppercase ${fi % 2 === 0 ? 'text-secondary border-secondary/30 bg-secondary/5' : 'text-accent border-accent/30 bg-accent/5'}`}>
                           {f}
                         </span>
                       ))}
@@ -176,7 +176,7 @@ const SectorExpertiseDetailed = () => {
                     </p>
                     <div className="flex flex-wrap gap-4">
                       {s.features.map((f, fi) => (
-                        <span key={fi} className="text-[10px] tracking-widest font-bold text-secondary border border-secondary/30 px-4 py-2 uppercase bg-secondary/5">
+                        <span key={fi} className="text-[10px] tracking-widest font-bold text-accent border border-accent/30 px-4 py-2 uppercase bg-accent/5">
                           {f}
                         </span>
                       ))}

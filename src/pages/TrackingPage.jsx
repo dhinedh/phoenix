@@ -17,7 +17,7 @@ const TrackingPage = () => {
                 placeholder="Enter Tracking Number (e.g., PGL-12345678)" 
                 className="flex-grow bg-white border border-gray-200 py-5 px-8 focus:border-secondary outline-none transition-colors font-bold tracking-widest text-primary uppercase text-sm"
               />
-              <button className="gold-gradient text-primary px-12 py-5 rounded-sm font-bold text-sm tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-xl">
+              <button className="brand-gradient text-primary px-12 py-5 rounded-sm font-bold text-sm tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-xl">
                 Track Now
               </button>
            </div>

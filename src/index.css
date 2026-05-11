@@ -3,8 +3,8 @@
 
 @theme {
   --color-primary: #000B1E;
-  --color-secondary: #D4AF37;
-  --color-accent: #C5A059;
+  --color-secondary: #1E40AF; /* Structural Blue */
+  --color-accent: #ED1C24;    /* Action Red */
   --color-surface: #F8FAFC;
   --color-muted: #64748B;
   
@@ -14,7 +14,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #000B1E;
+  --foreground: #001A4D;
   scroll-behavior: smooth;
 }
 
@@ -45,8 +45,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+.brand-gradient, .gold-gradient {
+  background: linear-gradient(135deg, #1E40AF 0%, #172554 100%);
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, #ED1C24 0%, #991B1B 100%);
 }
 
 .shadow-elegant {

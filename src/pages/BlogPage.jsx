@@ -179,7 +179,7 @@ const BlogPage = () => {
                           placeholder="Node Email" 
                           className="w-full bg-white/5 border border-white/10 py-3 px-4 outline-none focus:border-secondary transition-all rounded-sm text-xs"
                         />
-                        <button className="w-full gold-gradient py-3 text-primary font-black text-[10px] tracking-[0.3em] uppercase rounded-sm">
+                        <button className="w-full brand-gradient py-3 text-primary font-black text-[10px] tracking-[0.3em] uppercase rounded-sm">
                            SUBSCRIBE
                         </button>
                      </div>

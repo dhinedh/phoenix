@@ -177,7 +177,7 @@ const ServiceDetailPage = () => {
                      <p className="text-primary text-xl md:text-3xl font-heading font-light leading-relaxed mb-10 md:mb-12">
                         {service.desc}
                      </p>
-                     <div className="w-20 md:w-24 h-1 md:h-1.5 gold-gradient"></div>
+                     <div className="w-20 md:w-24 h-1 md:h-1.5 brand-gradient"></div>
                   </div>
 
                   <div className="space-y-12 md:space-y-16">
@@ -204,7 +204,7 @@ const ServiceDetailPage = () => {
                      </div>
 
                      <div className="mt-10 md:mt-12 pt-6 md:pt-8">
-                        <button onClick={() => navigate('/contact')} className="w-full gold-gradient py-4 md:py-5 text-primary font-black text-[9px] md:text-[10px] tracking-[0.4em] uppercase rounded-sm shadow-lg hover:brightness-110 hover:-translate-y-0.5 transition-all duration-300">
+                        <button onClick={() => navigate('/contact')} className="w-full brand-gradient py-4 md:py-5 text-primary font-black text-[9px] md:text-[10px] tracking-[0.4em] uppercase rounded-sm shadow-lg hover:brightness-110 hover:-translate-y-0.5 transition-all duration-300">
                            Request Technical Briefing
                         </button>
                      </div>

@@ -69,12 +69,14 @@ const TechInnovation = () => {
                       }`}
                     >
                       <div className={`flex-shrink-0 w-14 h-14 border flex items-center justify-center font-heading font-bold text-xl transition-all duration-200 ${
-                        isActive ? 'bg-secondary border-secondary text-primary scale-110 shadow-lg rotate-[360deg]' : 'border-secondary/30 text-secondary group-hover:bg-secondary group-hover:text-primary'
+                        isActive 
+                          ? 'bg-secondary border-secondary text-white scale-110 shadow-[0_0_20px_rgba(30,64,175,0.3)] rotate-[360deg]' 
+                          : 'border-secondary/20 text-secondary/60 group-hover:border-secondary group-hover:text-secondary'
                       }`}>
                         0{i+1}
                       </div>
                       <div>
-                        <h3 className={`text-xl font-heading font-bold mb-3 uppercase tracking-widest transition-colors ${isActive ? 'text-secondary' : 'text-white'}`}>{f.title}</h3>
+                        <h3 className={`text-xl font-heading font-bold mb-3 uppercase tracking-widest transition-colors ${isActive ? 'text-accent' : 'text-white/80'}`}>{f.title}</h3>
                         <p className={`font-light leading-relaxed max-w-sm transition-colors text-sm ${isActive ? 'text-white' : 'text-white/40'}`}>{f.desc}</p>
                       </div>
                     </motion.div>

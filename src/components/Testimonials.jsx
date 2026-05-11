@@ -62,7 +62,7 @@ const Testimonials = () => {
           <h1 className="text-4xl md:text-7xl font-heading font-black text-primary mb-8 tracking-tighter">
             VOICES OF <span className="font-light italic text-muted">Excellence.</span>
           </h1>
-          <div className="w-24 h-1.5 gold-gradient mx-auto"></div>
+          <div className="w-24 h-1.5 brand-gradient mx-auto"></div>
         </div>
 
         <div className="relative">

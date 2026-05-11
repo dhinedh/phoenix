@@ -13,7 +13,7 @@ const ChatWidget = () => {
           {/* Header */}
           <div className="bg-primary p-6 flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 gold-gradient rounded-full flex items-center justify-center text-primary font-bold text-lg">AI</div>
+              <div className="w-10 h-10 brand-gradient rounded-full flex items-center justify-center text-primary font-bold text-lg">AI</div>
               <div>
                 <h4 className="text-white font-heading font-bold text-sm tracking-widest uppercase">PGL Assistant</h4>
                 <div className="flex items-center gap-2">
@@ -32,7 +32,7 @@ const ChatWidget = () => {
           {/* Chat Body */}
           <div className="flex-grow p-6 space-y-6 overflow-y-auto bg-surface">
             <div className="flex gap-4">
-              <div className="w-8 h-8 gold-gradient rounded-full flex-shrink-0 flex items-center justify-center text-[10px] text-primary font-bold">AI</div>
+              <div className="w-8 h-8 brand-gradient rounded-full flex-shrink-0 flex items-center justify-center text-[10px] text-primary font-bold">AI</div>
               <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100">
                 <p className="text-sm text-primary font-light leading-relaxed">
                   Welcome to Phoennix Global. I am your AI logistics assistant. How can I help you today?

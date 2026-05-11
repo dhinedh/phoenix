@@ -85,7 +85,7 @@ const GalleryPage = () => {
           <h1 className="text-5xl md:text-8xl font-heading font-black text-white mb-8 tracking-tighter">
             OPERATIONS <span className="font-light italic text-white/40">Gallery.</span>
           </h1>
-          <div className="w-24 h-1 gold-gradient mx-auto"></div>
+          <div className="w-24 h-1 brand-gradient mx-auto"></div>
         </div>
       </section>
 

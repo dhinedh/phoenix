@@ -39,7 +39,7 @@ const Trust = () => {
               key={index} 
               className="flex items-center gap-4 group"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-secondary/20 group-hover:bg-secondary transition-colors"></div>
+              <div className="w-1.5 h-1.5 rounded-full bg-accent/20 group-hover:bg-accent transition-colors"></div>
               <span className="text-xl md:text-3xl font-heading font-bold text-primary/30 tracking-tighter hover:text-secondary cursor-default transition-all duration-500 uppercase">
                 {item}
               </span>

@@ -76,7 +76,7 @@ const FlashScreen = ({ onComplete }) => {
             y: ['-5%', '5%']
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-[-10%] bg-[#000B1E]"
+          className="absolute inset-[-10%] bg-primary"
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-primary via-primary/95 to-primary/90" />
       </div>
@@ -159,7 +159,7 @@ const FlashScreen = ({ onComplete }) => {
                     key={i}
                     animate={progress === 100 ? { 
                       scale: [1, 1.5, 1],
-                      backgroundColor: ["#D4AF37", "#FFFFFF", "#D4AF37"]
+                      backgroundColor: ["#2B59C3", "#FFFFFF", "#2B59C3"]
                     } : { 
                       opacity: [0.2, 1, 0.2] 
                     }}
@@ -170,7 +170,7 @@ const FlashScreen = ({ onComplete }) => {
               </div>
             </div>
             <motion.span 
-              animate={progress === 100 ? { scale: [1, 1.2, 1], color: ["#fff", "#D4AF37", "#fff"] } : {}}
+              animate={progress === 100 ? { scale: [1, 1.2, 1], color: ["#fff", "#2B59C3", "#fff"] } : {}}
               className="text-white font-heading text-3xl font-light tabular-nums"
             >
               {progress}<span className="text-xs ml-1 text-secondary">%</span>
@@ -179,7 +179,7 @@ const FlashScreen = ({ onComplete }) => {
           
           <div className="h-1 w-full bg-white/5 relative overflow-hidden">
             <motion.div 
-              className={`absolute top-0 left-0 h-full shadow-[0_0_25px_rgba(212,175,55,0.6)] transition-colors duration-500 ${progress === 100 ? 'bg-white' : 'bg-secondary'}`}
+              className={`absolute top-0 left-0 h-full shadow-[0_0_25px_rgba(43,89,195,0.6)] transition-colors duration-500 ${progress === 100 ? 'bg-white' : 'bg-secondary'}`}
               style={{ width: `${progress}%` }}
               transition={{ type: "spring", stiffness: 40, damping: 20 }}
             />

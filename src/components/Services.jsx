@@ -96,13 +96,13 @@ const Services = () => {
           className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8"
         >
           <div className="max-w-3xl">
-            <h2 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-xs">Capabilities</h2>
+            <h2 className="text-accent font-bold tracking-[0.4em] mb-6 uppercase text-xs">Capabilities</h2>
             <h1 className="text-4xl md:text-7xl font-heading font-black text-primary leading-none tracking-tighter">
               Sophisticated <br />
-              <span className="font-light italic text-muted">Logistics Solutions.</span>
+              <span className="font-light italic text-accent">Logistics Solutions.</span>
             </h1>
           </div>
-          <p className="text-muted text-lg max-w-sm font-light leading-relaxed mb-2 border-l border-secondary/30 pl-8">
+          <p className="text-muted text-lg max-w-sm font-light leading-relaxed mb-2 border-l border-accent/30 pl-8">
             Providing precision-engineered movement for the world's most demanding supply chains.
           </p>
         </motion.div>
@@ -125,7 +125,7 @@ const Services = () => {
                 ref={setRef(index)}
                 onClick={() => navigate(`/services/${service.id}`)}
                 className={`group relative h-[600px] overflow-hidden rounded-sm bg-primary cursor-pointer border border-white/5 transition-all duration-200 ${
-                  isActive ? 'md:scale-100 scale-[1.03] ring-2 ring-secondary/20 z-20' : ''
+                  isActive ? 'md:scale-100 scale-[1.03] ring-2 ring-accent/20 z-20' : ''
                 }`}
               >
                 {/* Background Image with Depth Overlay */}
@@ -146,7 +146,7 @@ const Services = () => {
                 {/* Card Content */}
                 <div className="absolute inset-0 p-12 flex flex-col justify-end z-10">
                   <div className="overflow-hidden mb-4">
-                    <span className={`text-[10px] tracking-[0.4em] font-bold text-secondary block transition-transform duration-300 ${
+                    <span className={`text-[10px] tracking-[0.4em] font-bold text-accent block transition-transform duration-300 ${
                       isActive ? 'translate-y-0' : 'transform -translate-y-full group-hover:translate-y-0'
                     }`}>
                       {service.id} — GLOBAL LOGISTICS
@@ -157,7 +157,7 @@ const Services = () => {
                     {service.title}
                   </h3>
                   
-                  <div className={`h-px bg-secondary/50 mb-8 transition-all duration-300 origin-left ${
+                  <div className={`h-px bg-accent/50 mb-8 transition-all duration-300 origin-left ${
                     isActive ? 'w-full' : 'w-12 group-hover:w-full'
                   }`}></div>
                   
@@ -174,8 +174,8 @@ const Services = () => {
                       isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-100'
                     }`}>
                       EXPLORE SERVICE
-                      <div className="relative w-8 h-px bg-white/20 group-hover:bg-secondary transition-colors overflow-hidden">
-                        <div className={`absolute inset-0 bg-secondary transition-transform duration-300 ${
+                      <div className="relative w-8 h-px bg-white/20 group-hover:bg-accent transition-colors overflow-hidden">
+                        <div className={`absolute inset-0 bg-accent transition-transform duration-300 ${
                           isActive ? 'translate-x-0' : 'transform -translate-x-full group-hover/btn:translate-x-0'
                         }`}></div>
                       </div>
@@ -187,12 +187,12 @@ const Services = () => {
                 <div className={`absolute top-0 right-0 p-8 transition-opacity ${
                   isActive ? 'opacity-100' : 'opacity-20 group-hover:opacity-100'
                 }`}>
-                  <div className="w-8 h-8 border-r border-t border-secondary/50"></div>
+                  <div className="w-8 h-8 border-r border-t border-accent/50"></div>
                 </div>
                 
                 {/* Interaction Ring */}
                 <div className={`absolute inset-0 border transition-all duration-300 pointer-events-none ${
-                  isActive ? 'border-secondary/20 scale-100' : 'border-secondary/0 scale-105 group-hover:border-secondary/20 group-hover:scale-100'
+                  isActive ? 'border-accent/20 scale-100' : 'border-accent/0 scale-105 group-hover:border-accent/20 group-hover:scale-100'
                 }`}></div>
               </motion.div>
             );

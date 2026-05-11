@@ -22,7 +22,7 @@ const About = () => {
           >
             <ThreeDTilt>
               <div className="relative z-10 border-[10px] border-surface p-10 lg:p-16 bg-primary shadow-2xl rounded-sm">
-                <div className="absolute -top-6 -right-6 w-20 h-20 gold-gradient -z-10"></div>
+                <div className="absolute -top-6 -right-6 w-20 h-20 brand-gradient -z-10"></div>
                 <h3 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-[10px]">Since 2011</h3>
                 <h2 className="text-2xl md:text-4xl font-heading font-light text-white mb-8 leading-tight">
                   Crafting <span className="font-bold italic">Global</span> Connections.
@@ -88,7 +88,7 @@ const About = () => {
 
               <button 
                 onClick={() => navigate('/about')}
-                className="gold-gradient text-primary px-10 py-5 rounded-sm font-bold text-sm tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-xl"
+                className="accent-gradient text-white px-10 py-5 rounded-sm font-bold text-sm tracking-[0.3em] uppercase transition-all hover:brightness-110 shadow-xl"
               >
                 Learn Our Story
               </button>

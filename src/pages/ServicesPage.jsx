@@ -84,7 +84,7 @@ const ServicesPage = () => {
       {/* Global Reach Stats - Atmospheric High-Tech */}
       <section className="py-32 bg-primary overflow-hidden relative">
         <div className="absolute inset-0 opacity-10">
-           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4AF37_1px,transparent_1px)] bg-[length:40px_40px]"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2B59C3_1px,transparent_1px)] bg-[length:40px_40px]"></div>
         </div>
         <div className="container mx-auto px-8 relative z-10">
           <motion.div 

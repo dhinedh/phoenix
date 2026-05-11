@@ -63,14 +63,14 @@ const DetailedCapabilities = () => {
       <div className="container mx-auto px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="max-w-3xl">
-            <h2 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-xs">Full Spectrum</h2>
-            <h1 className="text-4xl md:text-7xl font-heading font-black text-primary leading-none tracking-tighter">
-              OUR DETAILED <br />
-              <span className="font-light italic text-muted">Capabilities.</span>
+            <h2 className="text-accent font-bold tracking-[0.4em] mb-6 uppercase text-xs">Capabilities</h2>
+            <h1 className="text-4xl md:text-8xl font-heading font-black text-primary leading-none tracking-tighter mb-4">
+              Sophisticated <br />
+              <span className="font-light italic text-accent">Logistics Solutions.</span>
             </h1>
           </div>
-          <p className="text-muted text-lg max-w-sm font-light leading-relaxed mb-2 border-l border-secondary/30 pl-8">
-            A granular look at the precision-engineered solutions that drive global commerce.
+          <p className="text-muted text-lg max-w-sm font-light leading-relaxed mb-2 border-l-2 border-accent pl-8">
+            Providing precision-engineered movement for the world's most demanding supply chains.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ const DetailedCapabilities = () => {
                 data-scroll-index={index}
                 ref={setRef(index)}
                 onClick={() => navigate(`/services/${service.id}`)}
-                className={`${gridClasses} group relative overflow-hidden rounded-sm bg-primary cursor-pointer border border-primary/5 shadow-elegant transition-all duration-200 ${isActive ? 'md:scale-100 scale-[1.03] ring-2 ring-secondary/20 z-20' : ''}`}
+                className={`${gridClasses} group relative overflow-hidden rounded-sm bg-primary cursor-pointer border border-primary/5 shadow-elegant transition-all duration-200 ${isActive ? 'md:scale-100 scale-[1.03] ring-2 ring-accent/20 z-20' : ''}`}
               >
                 {/* Background Image */}
                 <img 
@@ -107,37 +107,35 @@ const DetailedCapabilities = () => {
 
                 {/* Content */}
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end z-10">
-                  <div className="overflow-hidden mb-2">
-                    <span className={`text-[9px] tracking-[0.4em] font-bold text-secondary block transition-transform duration-500 ${isActive ? 'translate-y-0' : 'transform -translate-y-full group-hover:translate-y-0'}`}>
-                      {service.id} — CAPABILITY
+                  <div className="overflow-hidden mb-4">
+                    <span className={`text-[10px] tracking-[0.4em] font-bold text-accent block transition-transform duration-500 ${isActive ? 'translate-y-0' : 'transform -translate-y-full group-hover:translate-y-0'}`}>
+                      {service.id} — GLOBAL LOGISTICS
                     </span>
                   </div>
                   
-                  <h3 className={`font-heading font-bold text-white mb-4 leading-tight transition-transform duration-500 ${isActive ? '-translate-y-2' : 'group-hover:-translate-y-2'} ${
-                    service.size === 'large' ? 'text-3xl md:text-5xl' : 'text-xl md:text-2xl'
+                  <h3 className={`font-heading font-bold text-white mb-6 leading-tight transition-transform duration-500 ${isActive ? '-translate-y-2' : 'group-hover:-translate-y-2'} ${
+                    service.size === 'large' ? 'text-3xl md:text-5xl' : 'text-2xl'
                   }`}>
                     {service.title}
                   </h3>
                   
-                  <div className={`h-px bg-secondary/50 mb-6 transition-all duration-700 origin-left ${isActive ? 'w-full' : 'w-12 group-hover:w-full'}`}></div>
+                  <div className={`h-[1px] bg-accent mb-8 transition-all duration-700 origin-left ${isActive ? 'w-24' : 'w-12 group-hover:w-24'}`}></div>
                   
                   <div className={`transition-all duration-700 ease-in-out overflow-hidden ${isActive ? 'max-h-32 opacity-100' : 'max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100'}`}>
-                    <p className="text-white/60 font-light text-sm leading-relaxed mb-6">
+                    <p className="text-white/60 font-light text-sm leading-relaxed mb-8">
                       {service.description}
                     </p>
                   </div>
 
-                  <div className={`flex items-center gap-4 text-[9px] tracking-[0.3em] font-bold text-white transition-opacity ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-100'}`}>
-                    VIEW DETAILS
-                    <svg className="w-3 h-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                  <div className={`flex items-center gap-4 text-[10px] tracking-[0.2em] font-bold text-white transition-opacity ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-100'}`}>
+                    <span className="uppercase">Explore Service</span>
+                    <div className={`h-[1.5px] bg-accent transition-all duration-500 ${isActive ? 'w-12' : 'w-8 group-hover:w-12'}`}></div>
                   </div>
                 </div>
 
                 {/* Corner Decoration */}
                 <div className={`absolute top-0 right-0 p-6 transition-opacity ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                   <div className="w-6 h-6 border-r border-t border-secondary/30"></div>
+                   <div className="w-8 h-8 border-r border-t border-accent/40"></div>
                 </div>
               </div>
             );

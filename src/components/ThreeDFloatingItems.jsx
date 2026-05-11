@@ -52,9 +52,9 @@ const ThreeDFloatingItems = () => {
         />
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: '#D4AF37', stopOpacity: 0 }} />
-            <stop offset="50%" style={{ stopColor: '#D4AF37', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#D4AF37', stopOpacity: 0 }} />
+            <stop offset="0%" style={{ stopColor: '#2B59C3', stopOpacity: 0 }} />
+            <stop offset="50%" style={{ stopColor: '#2B59C3', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#2B59C3', stopOpacity: 0 }} />
           </linearGradient>
         </defs>
       </svg>

@@ -6,7 +6,7 @@ const regions = [
     hubs: "45+", 
     desc: "Seamless connectivity through the gateway ports of Rotterdam and Hamburg.",
     image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200",
-    color: "rgba(212, 175, 55, 0.1)"
+    color: "rgba(43, 89, 195, 0.1)"
   },
   { 
     name: "Asia Pacific", 
@@ -20,7 +20,7 @@ const regions = [
     hubs: "30+", 
     desc: "Integrated supply chain solutions from Northern Canada to the Southern Cone.",
     image: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1200",
-    color: "rgba(212, 175, 55, 0.1)"
+    color: "rgba(43, 89, 195, 0.1)"
   },
   { 
     name: "Middle East", 

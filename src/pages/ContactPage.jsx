@@ -7,7 +7,7 @@ const ContactPage = () => {
       <section className="relative min-h-[80vh] md:h-[90vh] flex items-center overflow-hidden bg-primary">
         {/* Futuristic Grid Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4AF37_1px,transparent_1px)] bg-[length:40px_40px] md:bg-[length:60px_60px] opacity-[0.07]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2B59C3_1px,transparent_1px)] bg-[length:40px_40px] md:bg-[length:60px_60px] opacity-[0.07]"></div>
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary"></div>
           
           {/* Glowing Orbs */}
@@ -26,7 +26,7 @@ const ContactPage = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">GLOBAL</span> <br className="hidden md:block" />
               <span className="text-white relative inline-block">
                 GATEWAY
-                <div className="absolute -bottom-1 md:-bottom-3 left-0 w-full h-0.5 md:h-1 bg-secondary shadow-[0_0_20px_rgba(212,175,55,0.8)]"></div>
+                <div className="absolute -bottom-1 md:-bottom-3 left-0 w-full h-0.5 md:h-1 bg-secondary shadow-[0_0_20px_rgba(43,89,195,0.8)]"></div>
               </span>
             </h1>
 
@@ -117,7 +117,7 @@ const ContactPage = () => {
                   ></textarea>
                 </div>
 
-                <button className="gold-gradient text-primary px-12 md:px-16 py-5 md:py-6 rounded-sm font-bold text-[10px] tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-xl w-full">
+                <button className="brand-gradient text-primary px-12 md:px-16 py-5 md:py-6 rounded-sm font-bold text-[10px] tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-xl w-full">
                   Initialize Engagement
                 </button>
               </form>
@@ -181,7 +181,7 @@ const ContactPage = () => {
                      </p>
                      
                      <div className="group p-[1px] bg-gradient-to-br from-secondary/30 to-transparent rounded-sm inline-block w-full">
-                        <div className="bg-[#000B1E] p-8 md:p-10 border border-white/5 relative overflow-hidden">
+                        <div className="bg-primary p-8 md:p-10 border border-white/5 relative overflow-hidden">
                            <p className="text-white/60 font-bold text-[10px] tracking-widest uppercase mb-4">Direct Intelligence</p>
                            <button className="flex items-center gap-6 text-secondary text-[11px] tracking-[0.5em] font-bold uppercase group-hover:gap-10 transition-all">
                               <span>Start Briefing</span>
@@ -235,7 +235,7 @@ const ContactPage = () => {
                <div className="flex flex-col">
                   <span className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-[9px]">Strategic Vision</span>
                   <h2 className="text-6xl font-heading font-black text-primary mb-4 tracking-tighter italic leading-none">L. Yuvaraj</h2>
-                  <div className="w-16 h-1 gold-gradient mb-6"></div>
+                  <div className="w-16 h-1 brand-gradient mb-6"></div>
                   <p className="text-[#666] font-bold tracking-[0.2em] uppercase text-[9px]">Founder & Managing Director</p>
                </div>
                

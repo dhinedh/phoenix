@@ -62,7 +62,7 @@ const Hero = () => {
           </motion.div>
           
           <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl font-heading font-light text-white mb-6 md:mb-8 leading-[1.1]">
-            The Art of <span className="font-bold text-secondary">Global</span> Movement
+            The Art of <span className="font-bold text-accent">Global</span> Movement
           </motion.h1>
           
           <motion.p variants={itemVariants} className="text-base md:text-lg text-white/60 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-light">
@@ -73,13 +73,13 @@ const Hero = () => {
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center gap-6">
             <button 
               onClick={() => navigate('/contact')}
-              className="gold-gradient text-primary px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:brightness-110 shadow-2xl"
+              className="accent-gradient text-white px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:brightness-110 shadow-2xl"
             >
               Inquire Now
             </button>
             <button 
               onClick={() => navigate('/services')}
-              className="glass text-white border border-white/20 px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:bg-white/10"
+              className="gold-gradient text-white px-10 py-5 rounded-sm font-bold text-sm tracking-widest uppercase transition-all hover:brightness-110 shadow-2xl"
             >
               Our Capabilities
             </button>
@@ -95,7 +95,7 @@ const Hero = () => {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-[10px] tracking-[0.5em] text-white uppercase font-bold">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-secondary to-transparent"></div>
+        <div className="w-px h-12 bg-gradient-to-b from-accent to-transparent"></div>
       </motion.div>
     </section>
   );

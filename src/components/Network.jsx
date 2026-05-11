@@ -37,7 +37,7 @@ const Network = () => {
     <section className="py-40 bg-primary relative overflow-hidden border-y border-white/5">
       {/* Background World Map Pattern (CSS) */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_center,#D4AF37_1px,transparent_1px)] bg-[length:40px_40px]"></div>
+        <div className="w-full h-full bg-[radial-gradient(circle_at_center,#2B59C3_1px,transparent_1px)] bg-[length:40px_40px]"></div>
       </div>
 
       <div className="container mx-auto px-8 relative z-10">

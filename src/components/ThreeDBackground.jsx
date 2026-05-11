@@ -19,8 +19,8 @@ const ThreeDBackground = () => {
           }}
           className="w-[150%] h-[150%] border-[0.5px] border-secondary/20"
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(212, 175, 55, 0.1) 1px, transparent 1px), 
-                              linear-gradient(to bottom, rgba(212, 175, 55, 0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, rgba(43, 89, 195, 0.1) 1px, transparent 1px), 
+                              linear-gradient(to bottom, rgba(43, 89, 195, 0.1) 1px, transparent 1px)`,
             backgroundSize: '40px 40px',
             transform: 'perspective(1000px) rotateX(60deg)',
             transformStyle: 'preserve-3d'

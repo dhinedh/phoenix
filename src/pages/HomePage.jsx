@@ -44,7 +44,7 @@ const HomePage = () => {
           
           {/* Digital Grid Overlay */}
           <div className="absolute inset-0 opacity-[0.15]">
-             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4AF37_1px,transparent_1px)] bg-[length:40px_40px]"></div>
+             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2B59C3_1px,transparent_1px)] bg-[length:40px_40px]"></div>
           </div>
         </motion.div>
 
@@ -88,7 +88,7 @@ const HomePage = () => {
             >
               <button 
                 onClick={() => navigate('/contact')}
-                className="gold-gradient text-primary px-12 py-5 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-[0_20px_50px_rgba(212,175,55,0.3)] group flex items-center gap-4"
+                className="brand-gradient text-primary px-12 py-5 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-[0_20px_50px_rgba(43,89,195,0.3)] group flex items-center gap-4"
               >
                 <span>Start Conversation</span>
                 <div className="w-8 h-[1px] bg-primary group-hover:w-12 transition-all"></div>

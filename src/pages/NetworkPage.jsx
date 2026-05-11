@@ -22,7 +22,7 @@ const NetworkPage = () => {
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         {/* Background Data Visualization */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4AF37_1px,transparent_1px)] opacity-10"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2B59C3_1px,transparent_1px)] opacity-10"></div>
           <img 
             src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=2000" 
             alt="Global Network" 
@@ -126,7 +126,7 @@ const NetworkPage = () => {
             <h1 className="text-4xl md:text-6xl font-heading font-light text-white mb-16">Connect to our <span className="font-bold italic text-secondary">Global Pulse.</span></h1>
             <button 
               onClick={() => navigate('/contact')}
-              className="gold-gradient text-primary px-16 py-6 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-2xl"
+              className="brand-gradient text-primary px-16 py-6 rounded-sm font-bold text-xs tracking-[0.4em] uppercase transition-all hover:brightness-110 shadow-2xl"
             >
               Partner with us
             </button>

@@ -28,12 +28,12 @@ const Process = () => {
   const { activeIdx, setRef } = useScrollActive({ rootMargin: '-40% 0px -40% 0px' });
 
   return (
-    <section className="py-20 bg-[#000B1E] text-white overflow-hidden">
+    <section className="py-20 bg-primary text-white overflow-hidden">
       <div className="container mx-auto px-8">
         <div className="text-center mb-12 reveal reveal-up">
           <h2 className="text-secondary font-bold tracking-[0.4em] mb-6 uppercase text-xs">Methodology</h2>
           <h1 className="text-3xl md:text-5xl font-heading font-black mb-6 tracking-tighter">Our Operational Flow</h1>
-          <div className="w-24 h-1.5 gold-gradient mx-auto"></div>
+          <div className="w-24 h-1.5 brand-gradient mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">

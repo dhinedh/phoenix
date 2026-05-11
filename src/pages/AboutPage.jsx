@@ -96,7 +96,7 @@ const AboutPage = () => {
               initial={{ width: 0 }}
               animate={{ width: "6rem" }}
               transition={{ delay: 0.6, duration: 1 }}
-              className="h-1 gold-gradient"
+              className="h-1 brand-gradient"
             ></motion.div>
           </motion.div>
         </div>
@@ -167,7 +167,7 @@ const AboutPage = () => {
       {/* The Mission & Vision */}
       <section className="py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05]">
-           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4AF37_1px,transparent_1px)] bg-[length:40px_40px]"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2B59C3_1px,transparent_1px)] bg-[length:40px_40px]"></div>
         </div>
         <div className="container mx-auto px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">

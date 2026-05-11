@@ -1,18 +1,18 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-[#000814] text-white pt-32 pb-16">
+    <footer id="contact" className="bg-primary text-white pt-32 pb-16">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
           {/* Brand Info */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-6 mb-12">
-              <div className="w-16 h-16 gold-gradient flex items-center justify-center text-primary font-extrabold text-3xl shadow-2xl">P</div>
+              <BrandLogo className="w-16 h-16" />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-3xl tracking-[0.2em] leading-none text-white">PHOENNIX</span>
-                <span className="text-xs tracking-[0.5em] text-secondary font-bold mt-1">GLOBAL LOGISTICSS</span>
+                <span className="text-[10px] tracking-[0.5em] text-accent font-bold mt-2 uppercase">GLOBAL LOGISTICSS</span>
               </div>
             </div>
             <p className="text-white/60 mb-12 leading-relaxed font-light text-lg max-w-md border-l-2 border-secondary/30 pl-8">
